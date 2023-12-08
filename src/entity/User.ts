@@ -1,12 +1,13 @@
-import { Entity, ObjectIdColumn, ObjectId, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column,Index, OneToOne, JoinColumn } from "typeorm"
+import { Profile } from "./Profile"
 
 @Entity()
 export class User {
-
-    @ObjectIdColumn()
-    id: ObjectId
-
+    @PrimaryGeneratedColumn()
+    id: number
+    
     @Column()
+    // @Index({ unique: true })
     firstName: string
 
     @Column()
@@ -14,5 +15,9 @@ export class User {
 
     @Column()
     age: number
+
+    @OneToOne(() => Profile, (profile) => profile.user) 
+    @JoinColumn()
+    profile: Profile
 
 }

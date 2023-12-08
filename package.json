@@ -4,19 +4,20 @@
    "description": "Awesome project developed with TypeORM.",
    "type": "commonjs",
    "devDependencies": {
-      "ts-node": "10.7.0",
       "@types/node": "^16.11.10",
+      "ts-node": "^10.7.0",
       "typescript": "4.5.2"
    },
    "dependencies": {
-      "typeorm": "0.3.17",
+      "mongodb": "^5.2.0",
       "reflect-metadata": "^0.1.13",
-      "mongodb": "^5.2.0"
+      "typeorm": "0.3.17"
    },
    "scripts": {
       "start": "ts-node src/index.ts",
-      "typeorm": "typeorm-ts-node-commonjs",
-      "generate": "typeorm migration:generate -- -n User"
-
+      "typeorm": "npx typeorm migration:run -- -d ./db.config.ts",
+      "migration:generate": "npm run typeorm -- migration:generate",
+      "migration:run": "npm run typeorm -- migration:run",
+      "migration:revert": "npm run typeorm -- migration:revert"
    }
 }

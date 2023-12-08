@@ -1,0 +1,14 @@
+{
+  "type": "mongodb",
+  "host": "localhost",
+  "port": 27017,
+  "username": "",
+  "password": "",
+  "database": "qrs",
+  "entities": ["entity/*.ts"],
+  "migrationsTableName": "student_migration_table",
+  "migrations": ["migration/*.js"],
+  "cli": {
+    "migrationsDir": "migration"
+  }
+}
